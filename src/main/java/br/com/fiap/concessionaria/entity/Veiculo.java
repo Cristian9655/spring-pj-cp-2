@@ -20,7 +20,7 @@ import java.util.Set;
 public class Veiculo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_VEICULO")
+    @GeneratedValue(generator = "SQ_VEICULO", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "SQ_VEICULO", sequenceName = "SQ_VEICULO", allocationSize = 1)
     @Column(name = "ID_VEICULO")
     private Long id;
@@ -45,8 +45,7 @@ public class Veiculo {
     @JoinColumn(
             name = "FABRICANTE",
             referencedColumnName = "ID_FABRICANTE",
-            foreignKey = @ForeignKey(name = "FK_VEICULO_FABRICANTE"),
-            nullable = false
+            foreignKey = @ForeignKey(name = "FK_VEICULO_FABRICANTE")
     )
     private Fabricante fabricante;
 
@@ -54,26 +53,25 @@ public class Veiculo {
     @JoinColumn(
             name = "TIPO",
             referencedColumnName = "ID_TIPO",
-            foreignKey = @ForeignKey(name = "FK_VEICULO_TIPO"),
-            nullable = false
+            foreignKey = @ForeignKey(name = "FK_VEICULO_TIPO")
     )
     private TipoVeiculo tipo;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(
-            name = "TB ACESSORIOS_VEICULO",
+            name = "TB ACESSORIO_VEICULO",
             joinColumns = {
                     @JoinColumn(
                             name = "VEICULO",
                             referencedColumnName = "ID_VEICULO",
-                            foreignKey = @ForeignKey(name = "FK_VEICULO_ACESSORIOS")
+                            foreignKey = @ForeignKey(name = "FK_VEICULO_ACESSORIO")
                     )
             },
             inverseJoinColumns = {
                     @JoinColumn(
-                            name = "ACESSORIOS",
-                            referencedColumnName = "ID_ACESSORIOS",
-                            foreignKey = @ForeignKey(name = "FK_ACESSORIOS_VEICULO")
+                            name = "ACESSORIO",
+                            referencedColumnName = "ID_ACESSORIO",
+                            foreignKey = @ForeignKey(name = "FK_ACESSORIO_VEICULO")
                     )
             }
     )

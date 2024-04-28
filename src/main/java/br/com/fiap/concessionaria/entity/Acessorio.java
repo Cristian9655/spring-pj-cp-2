@@ -12,18 +12,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "TB_ACESSORIOS")
+@Table(name = "TB_ACESSORIO")
 public class Acessorio {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ACESSORIOS")
-    @SequenceGenerator(name = "SQ_ACESSORIOS", sequenceName = "SQ_ACESSORIOS", allocationSize = 1)
-    @Column(name = "ID_ACESSORIOS")
+    @GeneratedValue(generator = "SQ_ACESSORIO", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "SQ_ACESSORIO", sequenceName = "SQ_ACESSORIO", allocationSize = 1)
+    @Column(name = "ID_ACESSORIO")
     private Long id;
 
-    @Column(name = "NM_ACESSORIOS")
+    @Column(name = "NM_ACESSORIO")
     private String nome;
 
-    @Column(name = "PC_ACESSORIOS")
+    @Column(name = "PC_ACESSORIO")
     private Double preco;
 
 

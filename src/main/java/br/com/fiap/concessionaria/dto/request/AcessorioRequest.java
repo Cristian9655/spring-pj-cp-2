@@ -6,11 +6,11 @@ import jakarta.validation.constraints.Size;
 
 public record AcessorioRequest(
 
-        @Size(min = 3, max = 100)
-        @NotNull(message = "Nome é obrigatorio")
+        @Size(min = 3, max = 50)
+        @NotNull(message = "Nome é obrigatorio!")
         String nome,
 
-        @NotNull(message = "Um preço é obrigatorio")
+        @NotNull(message = "Um preço é obrigatorio!")
         Double preco
 
 ) {

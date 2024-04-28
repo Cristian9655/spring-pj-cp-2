@@ -20,7 +20,7 @@ import java.util.Set;
 public class Loja {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_LOJA")
+    @GeneratedValue(generator = "SQ_LOJA", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "SQ_LOJA", sequenceName = "SQ_LOJA", allocationSize = 1)
     @Column(name = "ID_LOJA")
     private Long id;

@@ -6,11 +6,11 @@ import jakarta.validation.constraints.Size;
 
 public record FabricanteRequest(
 
-        @Size(min = 3, max = 100)
+        @Size(min = 3, max = 50)
         @NotNull(message = "Nome é obrigatorio!")
         String nome,
 
-        @Size(min = 3, max = 100)
+        @Size(min = 3, max = 50)
         @NotNull(message = "Defina o nome da fantasia!")
         String nomeFantasia
 ) {

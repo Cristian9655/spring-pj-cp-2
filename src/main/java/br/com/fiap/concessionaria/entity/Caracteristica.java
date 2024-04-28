@@ -12,20 +12,23 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "TB_CARACTERISTICA")
+@Table(name = "TB_CARACTERISTICA", uniqueConstraints = {
+    @UniqueConstraint(
+            name = "UK_NM_CARACTERISTICA_VEICULO",
+            columnNames = {"NM_CARACTERISTICA", "VEICULO"}
+    )
+})
 public class Caracteristica {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CARACTERISTICA")
+    @GeneratedValue(generator = "SQ_CARACTERISTICA", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "SQ_CARACTERISTICA", sequenceName = "SQ_CARACTERISTICA", allocationSize = 1)
     @Column(name = "ID_CARACTERISTICA")
     private Long id;
 
-    //30 digitos
     @Column(name = "NM_CARACTERISTICA")
     private String nome;
 
-    //20 digitos
     @Column(name = "DS_CARACTERISTICA")
     private String descricao;
 
@@ -33,8 +36,7 @@ public class Caracteristica {
     @JoinColumn(
             name = "VEICULO",
             referencedColumnName = "ID_VEICULO",
-            foreignKey = @ForeignKey(name = "FK_CARACTERISTICA_VEICULO"),
-            nullable = false
+            foreignKey = @ForeignKey(name = "FK_CARACTERISTICA_VEICULO")
     )
     private Veiculo veiculo;
 

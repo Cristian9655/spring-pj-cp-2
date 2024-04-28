@@ -21,7 +21,6 @@ public record VeiculoRequest(
         @NotNull(message = "Ano de fabricação é obrigatorio!")
         Year anoDeFabricacao,
 
-
         @NotNull(message = "Cor é obrigatorio!")
         String cor,
 
@@ -34,20 +33,16 @@ public record VeiculoRequest(
         @NotNull(message = "Modelo é obrigatorio!")
         String modelo,
 
-        @Size(min = 3, max = 15)
+        @Size(min = 3, max = 15) // 15 dígitos
         @NotNull(message = "Palavra de efeito é obrigatorio!")
         String palavraDeEfeito,
 
-        @Valid
         @NotNull(message = "Fabricante é obrigatorio!")
         AbstractRequest fabricante,
 
-        @Valid
-        @NotNull(message = "Tipo é obrigatorio!")
-        AbstractRequest tipo,
 
-        @Valid
-        @NotNull(message = "Acessorios é obrigatorio!")
-        AbstractRequest acessorios
+        @NotNull(message = "Tipo é obrigatorio!")
+        AbstractRequest tipo
+
 ) {
 }

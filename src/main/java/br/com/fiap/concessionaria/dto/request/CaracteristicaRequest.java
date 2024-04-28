@@ -14,11 +14,11 @@ public record CaracteristicaRequest(
 
 
         @Size(min = 3, max = 20)
-        @NotNull(message = "Um preço é obrigatorio")
+        @NotNull(message = "Um preço é obrigatorio.")
         String descricao,
 
         @Valid
-        @NotNull(message = "Veiculo é obrigatorio")
+        @NotNull(message = "Veiculo é obrigatorio.")
         AbstractRequest veiculo
 ) {
 }

@@ -11,9 +11,9 @@ import java.util.Set;
 
 public record LojaRequest(
 
-        @Size(min = 3, max = 100)
-        @NotNull(message = "Nome é obrigatorio!")
-         String nome
+        @Size(min = 3,max = 50, message = "Nome inválido")
+        @NotNull(message = "Nome é obrigátorio")
+        String nome
 
 ) {
 }

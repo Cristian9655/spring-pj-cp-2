@@ -4,6 +4,7 @@ import br.com.fiap.concessionaria.dto.request.AcessorioRequest;
 import br.com.fiap.concessionaria.dto.response.AcessorioResponse;
 import br.com.fiap.concessionaria.entity.Acessorio;
 import br.com.fiap.concessionaria.service.AcessorioService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -49,7 +50,7 @@ public class AcessorioResource implements ResourceDTO<Acessorio, AcessorioReques
 
     @GetMapping(value = "/{id}")
     @Override
-    public ResponseEntity<AcessorioResponse> findById(Long id) {
+    public ResponseEntity<AcessorioResponse> findById(@PathVariable Long id) {
         var entity = service.findById(id);
 
         if (Objects.isNull(entity)) return  ResponseEntity.notFound().build();
@@ -62,7 +63,7 @@ public class AcessorioResource implements ResourceDTO<Acessorio, AcessorioReques
     @Transactional
     @PostMapping
     @Override
-    public ResponseEntity<AcessorioResponse> save(AcessorioRequest r) {
+    public ResponseEntity<AcessorioResponse> save(@RequestBody @Valid AcessorioRequest r) {
         var entity = service.toEntity(r);
         var saved = service.save(entity);
         var response = service.toResponse(saved);

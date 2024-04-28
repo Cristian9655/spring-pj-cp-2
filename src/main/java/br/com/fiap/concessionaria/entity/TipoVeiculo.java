@@ -13,14 +13,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "TB_TIPOVEICULO")
+@Table(name = "TB_TIPO_VEICULO", uniqueConstraints = {
+    @UniqueConstraint(
+            name = "UK_NM_TIPO", columnNames = "NM_TIPO"
+    )
+})
 public class TipoVeiculo {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_TIPOVEICULO")
-    @SequenceGenerator(name = "SQ_TIPOVEICULO", sequenceName = "SQ_TIPOVEICULO", allocationSize = 1)
-    @Column(name = "ID_TIPOVEICULO")
+    @GeneratedValue(generator = "SQ_TIPO", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "SQ_TIPO", sequenceName = "SQ_TIPO", allocationSize = 1)
+    @Column(name = "ID_TIPO")
     private Long id;
 
-    @Column(name = "NM_TIPOVEICULO")
+    @Column(name = "NM_TIPO")
     private String nome;
 }

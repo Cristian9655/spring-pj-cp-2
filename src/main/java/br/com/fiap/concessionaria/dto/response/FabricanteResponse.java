@@ -6,10 +6,8 @@ import lombok.Builder;
 
 @Builder
 public record FabricanteResponse(
-
         Long id,
         String nome,
-
         String nomeFantasia
 ) {
 }
